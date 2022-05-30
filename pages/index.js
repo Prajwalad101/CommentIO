@@ -1,3 +1,9 @@
+import Comments from '../components/Comments';
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <div className="">
+      <Comments />
+    </div>
+  );
 }
