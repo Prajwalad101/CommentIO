@@ -2,13 +2,23 @@ import ReplyComment from './ReplyComment';
 import UserComment from './UserComment';
 
 function Comment(props) {
-  console.log(JSON.stringify(props.comment, null, 4));
+  // checks if the comment contains replies [empty or not]
+  let doesReplyExist;
+
+  if (props.comment.replies && props.comment.replies.length !== 0) {
+    doesReplyExist = true;
+  } else {
+    doesReplyExist = false;
+  }
 
   return (
     <>
       <UserComment comment={props.comment} />
-      {props.comment.replies && (
-        <ReplyComment replies={props.comment.replies} />
+      {doesReplyExist && (
+        <div className="flex ml-10">
+          <div className="border-r-[3px] border-r-lightgray mr-10" />
+          <ReplyComment replies={props.comment.replies} />
+        </div>
       )}
     </>
   );

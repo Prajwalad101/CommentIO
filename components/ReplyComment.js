@@ -2,11 +2,9 @@ import Comment from './Comment';
 
 function ReplyComment({ replies }) {
   return (
-    <div className="ml-20">
+    <div>
       {replies.map((comment) => (
-        <div key={comment.id}>
-          <Comment comment={comment} />
-        </div>
+        <Comment comment={comment} key={comment.id} />
       ))}
     </div>
   );
