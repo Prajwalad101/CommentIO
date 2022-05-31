@@ -1,5 +1,5 @@
-import ReplyComment from './ReplyComment';
-import UserComment from './UserComment';
+import ReplyComment from "./ReplyComment";
+import UserComment from "./UserComment";
 
 function Comment(props) {
   // checks if the comment contains replies [empty or not]
@@ -13,10 +13,10 @@ function Comment(props) {
 
   return (
     <>
-      <UserComment comment={props.comment} />
+      <UserComment comment={props.comment} currentUser={props.currentUser} />
       {doesReplyExist && (
-        <div className="flex ml-10">
-          <div className="border-r-[3px] border-r-lightgray mr-10" />
+        <div className="ml-10 flex">
+          <div className="mr-10 border-r-[3px] border-r-lightgray" />
           <ReplyComment replies={props.comment.replies} />
         </div>
       )}

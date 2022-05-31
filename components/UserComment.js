@@ -1,37 +1,23 @@
-import Image from 'next/image';
-import Upvote from './Upvote';
+import Upvote from "./Upvote";
+import CommentHeader from "./CommentHeader";
 
 function UserComment(props) {
-  const { content, user, createdAt, score } = props.comment;
-
-  const formattedUrl = user.image.png.slice(1);
-
+  const { content, user, createdAt, score, replyingTo } = props.comment;
+  z;
   return (
-    <div className="mb-10 bg-white rounded-md p-6 flex gap-5 items-start last:mb-0">
+    <div className="mb-10 flex items-start gap-5 rounded-md bg-white p-6 last:mb-0">
       <Upvote score={score} />
       <div>
-        <div className="flex gap-4 items-center justify-between mb-3">
-          <div className="flex gap-4">
-            <Image
-              src={formattedUrl}
-              alt="user profile"
-              width={30}
-              height={30}
-            />
-            <p className="font-medium">{user.username}</p>
-            <p className="text-grayishblue">{createdAt}</p>
-          </div>
-          <div className="flex gap-2 items-center mb-">
-            <Image
-              src="/images/icon-reply.svg"
-              alt="reply icon"
-              height={14}
-              width={14}
-            />
-            <p className="text-moderateblue font-medium">Reply</p>
-          </div>
-        </div>
-        <p className="text-grayishblue">{content}</p>
+        <CommentHeader user={user} createdAt={createdAt} />
+        <p className="text-grayishblue">
+          {replyingTo && (
+            <span className="font-medium text-moderateblue">
+              @{replyingTo}{" "}
+            </span>
+          )}
+
+          {content}
+        </p>
       </div>
     </div>
   );

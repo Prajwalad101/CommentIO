@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 function Upvote({ score }) {
   return (
-    <div className="flex flex-col items-center gap-3 bg-verylightgray rounded-lg py-3 w-[85px]">
+    <div className="flex w-[85px] flex-col items-center gap-3 rounded-lg bg-verylightgray py-3">
       <div className="flex justify-center">
         <Image
           src="/images/icon-plus.svg"
