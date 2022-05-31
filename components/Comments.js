@@ -4,7 +4,7 @@ import Comment from './Comment';
 function Comments() {
   const comments = Data.comments;
   return (
-    <div className="bg-blue-500 mx-auto w-[90%]">
+    <div className="mx-auto w-[43%]">
       {comments.map((comment) => (
         <Comment key={comment.id} comment={comment} />
       ))}
